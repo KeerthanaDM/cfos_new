@@ -1,27 +1,18 @@
 {
-    "version":2,
-    "builds":[
-        {
-            "src":"FoodProject/wsgi.py",
-            "use":"@vercel/python",
-            "config":{"maxLambdaSize":"15mb","runtime":"python3.9"}
-        },
-        {
-            "src":"build_files.sh",
-            "use":"@vercel/static_build",
-            "config":{
-                "distDir":"staticfiles_build"
-            }
+    "build": {
+    "env": {
+    
         }
-    ],
-    "routes":[
+    },
+    "builds": [{
+        "src": "FoodProject/wsgi.py",
+        "use": "@natanffs/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    }],
+    "routes": [
         {
-            "src":"/static/(.*)",
-            "dest":"/static/$1"
-        },
-        {
-            "src":"./(.*)",
-            "dest":"poll/wsgi.py"
+            "src": "/(.*)",
+            "dest": "cores/wsgi.py"
         }
     ]
-}
+    }
