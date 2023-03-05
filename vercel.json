@@ -6,7 +6,7 @@
     },
     "builds": [{
         "src": "FoodProject/wsgi.py",
-        "use": "@natanffs/vercel-python-wsgi",
+        "use": "@ardnt/vercel-python-wsgi",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     }],
     "routes": [
